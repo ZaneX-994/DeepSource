@@ -7,12 +7,12 @@ class MinioGateway:
     # 提供获取桶名称的函数
     @property
     def bucket_name(self):
-        return infra_config.mineru_config.bucket_name
+        return infra_config.minio_config.bucket_name
 
     # 提供获取图片前缀的函数
     @property
     def image_minio_dir(self):
-        return infra_config.mineru_config.image_minio_dir
+        return infra_config.minio_config.minio_img_dir
 
     # 提供获取minio_client的函数
     @property
@@ -27,4 +27,6 @@ class MinioGateway:
 
         return image_url
 
+
+minio_gateway = MinioGateway()
 
