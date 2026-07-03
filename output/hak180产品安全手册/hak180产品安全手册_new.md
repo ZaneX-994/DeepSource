@@ -122,7 +122,7 @@ http://www.95105369.com。
 
 •	为了防止人员受伤，请谨慎操作，避免将手指放置在图中所示的区域中。
 
-![禁止将手指伸入设备内部齿轮或传动机构，以防夹伤或设备损坏。](http://localhost:9000/deepsource/upload-images/hak180产品安全手册/c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg)
+![禁止将手指伸入设备内部齿轮或传动机构，防止夹伤或设备损坏。](http://localhost:9000/deepsource/upload-images/hak180产品安全手册/c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg)
 
 ![禁止将手指伸入设备顶部开口区域，防止夹伤或触电危险。](http://localhost:9000/deepsource/upload-images/hak180产品安全手册/5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg)
 
@@ -141,7 +141,7 @@ http://www.95105369.com。
 ![正确搬运设备：双手托底，避免抓握进纸托板或出纸盒以防掉落受伤。](http://localhost:9000/deepsource/upload-images/hak180产品安全手册/cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg)  
 确保本设备的任何部位均未伸出设备所在的桌面或支架。特别是当本设备位于桌面、支架等边缘时，请勿让出纸盒打开。确保本设备位于平整、水平且稳定的表面上，避免震动。不遵守这些预防措施可能导致设备跌落，从而导致用户的人身伤害以及设备严重损坏。
 
-![禁止将设备置于桌面或支架边缘，避免出纸盒打开导致跌落，确保平稳稳定放置以防人身伤害和设备损坏。](http://localhost:9000/deepsource/upload-images/hak180产品安全手册/8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg)
+![禁止将设备置于桌面或支架边缘，避免出纸盒打开导致跌落，确保设备平稳稳定放置以防人身伤害和设备损坏。](http://localhost:9000/deepsource/upload-images/hak180产品安全手册/8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg)
 
 “重要事项”表示可能导致财产损失或本设备功能丧失的潜在危险情况。
 
