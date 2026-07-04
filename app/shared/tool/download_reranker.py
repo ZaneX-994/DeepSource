@@ -1,9 +1,15 @@
 """
 工具脚本，用于处理 download reranker 相关的辅助任务。
 """
-from modelscope.hub.snapshot_download import snapshot_download
+import os
 
-local_dir = r"D:\ai_models\modelscope_cache\models\rerank"
+from modelscope.hub.snapshot_download import snapshot_download
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+local_dir = os.getenv("BGE_RERANKER_LARGE")
 
 snapshot_download(
     model_id="BAAI/bge-reranker-large",
