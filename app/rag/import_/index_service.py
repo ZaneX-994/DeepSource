@@ -13,8 +13,8 @@ def require_embeddings_content(state: ImportGraphState) -> list[dict]:
     # ===================== 校验 chunks =====================
     # 如果 embeddings_content 为空，无法继续业务，直接抛出异常终止流程
     if not embedding_content:
-        logger.warning("embeddings_content 为空，无法继续业务!")
-        raise ValueError("embeddings_content 为空，无法继续业务!")
+        logger.warning("embedding_content 为空，无法继续业务!")
+        raise ValueError("embedding_content 为空，无法继续业务!")
 
     return embedding_content
 
@@ -44,13 +44,13 @@ def prepare_chunks_collection() -> None:
     )
 
     # 添加主键字段：chunk_id，INT64 类型，自增
-    schema.add_field(field_name="chunk_id", field_type=DataType.INT64, is_primary=True, auto_id=True)
+    schema.add_field(field_name="chunk_id", datatype=DataType.INT64, is_primary=True, auto_id=True)
 
     # 添加文件标题字段：VARCHAR 类型，最大长度 512
-    schema.add_field(field_name="file_title", field_type=DataType.VARCHAR, max_length=512)
+    schema.add_field(field_name="file_title", datatype=DataType.VARCHAR, max_length=512)
 
     # 添加主体名称字段：VARCHAR 类型，最大长度 512
-    schema.add_field(field_name="item_name", field_type=DataType.VARCHAR, max_length=512)
+    schema.add_field(field_name="item_name", datatype=DataType.VARCHAR, max_length=512)
 
     # 添加切片标题字段：VARCHAR 类型，最大长度 512
     schema.add_field(field_name="title", datatype=DataType.VARCHAR, max_length=512)

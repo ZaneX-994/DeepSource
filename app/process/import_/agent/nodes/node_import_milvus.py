@@ -33,7 +33,7 @@ if __name__ == '__main__':
         "task_id": "test_milvus_task",
         "item_name":"测试项目_Milvus",
         "file_title": "test.pdf",
-        "embeddings_content": [
+        "embedding_content": [
             {
                 "content": "Milvus 测试文本 1",
                 "title": "测试标题",
