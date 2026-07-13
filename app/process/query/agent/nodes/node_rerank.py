@@ -3,9 +3,10 @@ import sys
 from app.shared.runtime.logger import node_log
 from app.rag.query.rerank_service import rerank_documents
 from app.shared.utils.task_utils import add_done_task, add_running_task
+from app.process.query.agent.state import QueryGraphState
 
 @node_log("node_rerank")
-def node_rerank(state):
+def node_rerank(state: QueryGraphState):
     """
     节点功能：使用 Cross-Encoder 模型对 RRF 后的结果进行精确打分重排。
     """

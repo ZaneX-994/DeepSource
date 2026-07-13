@@ -15,9 +15,9 @@ def validate_and_get_data(state: QueryGraphState) -> tuple[list[str], str]:
     return item_names, rewritten_query
 
 
-def search_by_milvus(item_names: list[str], rewritten_query: str) -> list:
+def search_by_milvus(item_names: list[str], rewritten_query: str, answer: str = None) -> list:
 
-    query_embedding = llm_provider.generate_embeddings([rewritten_query])
+    query_embedding = llm_provider.generate_embeddings([rewritten_query + ":" + answer])
     reqs = milvus_gateway.create_request(
         dense_vector=query_embedding['dense'][0],
         sparse_vector=query_embedding['sparse'][0],

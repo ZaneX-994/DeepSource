@@ -3,9 +3,10 @@ import sys
 from app.shared.runtime.logger import node_log
 from app.rag.query.web_search_service import search_by_web
 from app.shared.utils.task_utils import add_done_task, add_running_task
+from app.process.query.agent.state import QueryGraphState
 
 @node_log("node_web_search_mcp")
-def node_web_search_mcp(state):
+def node_web_search_mcp(state: QueryGraphState):
     """
     节点功能：调用外部搜索引擎补充信息
     """

@@ -3,9 +3,10 @@ from app.shared.runtime.logger import node_log
 from app.rag.query.item_name_confirm_service import confirm_item_name
 from app.shared.utils.task_utils import add_done_task, add_running_task
 from app.infra.persistence.history_repository import history_repository
+from app.process.query.agent.state import QueryGraphState
 
 @node_log("node_item_name_confirm")
-def node_item_name_confirm(state):
+def node_item_name_confirm(state: QueryGraphState):
     """
     节点功能：确认用户问题中的核心商品名称。
     输入：state['original_query']
