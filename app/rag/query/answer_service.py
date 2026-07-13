@@ -2,6 +2,7 @@ from app.process.query.agent.state import QueryGraphState
 from app.shared.utils.task_utils import add_done_task,add_running_task,push_to_session
 from app.shared.utils.sse_utils import SSEEvent
 from app.shared.runtime.logger import logger
+from app.infra.persistence.history_repository import history_repository
 import time
 import sys
 
@@ -30,25 +31,28 @@ def generate_answer(state: QueryGraphState) -> QueryGraphState:
             push_to_session(session_id, SSEEvent.DELTA, {"delta": ch})
             time.sleep(0.03)
 
-        image_urls = ["https://example.com/demo-1.png", "https://example.com/demo-2.png"]
-        push_to_session(
-            session_id,
-            SSEEvent.FINAL,
-            {
-                "answer": final_text,
-                "status": "completed",
-                "image_urls": image_urls
-            }
-        )
+        image_urls = ["http://www.baidu.com/img/bd_logo.png"]
+
         logger.info(f"流式输出完成，总长度: {len(final_text)}")
     else:
         final_text = base_answer
+
+    # 记录回答的答案
+    history_repository.save_message(
+        session_id=state.get("session_id"),
+        role="assistant",
+        text=final_text,
+        rewritten_query="",
+        item_names=["西高地"],
+        image_urls=["http://www.baidu.com/img/bd_logo.png"]
+    )
 
     add_done_task(state['session_id'], sys._getframe().f_code.co_name, state.get("is_stream"))
     print("---node_answer_output 节点处理结束---")
     # 关键点：return 必须保留 session_id！
     return {
         "session_id": session_id,  # 必须带回去
-        "answer": "你的回答内容",
+        "answer": final_text,
+        "image_urls": ["http://www.baidu.com/img/bd_logo.png"],
         "is_stream": state.get("is_stream")
     }

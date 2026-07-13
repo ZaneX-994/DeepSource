@@ -6,7 +6,7 @@ from app.shared.model import get_llm_client, get_bge_m3_ef, generate_embeddings
 class LLMProvider:
 
     # 获取普通大语言模型
-    def chat(self, model_name: str = None, json_mode: bool = None):
+    def chat(self, model_name: str = None, json_mode: bool = False):
         return get_llm_client(model=model_name, json_mode=json_mode)
 
 
