@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-local_dir = os.getenv("BGE_RERANKER_LARGE")
+local_dir = os.getenv("CACHE_DIR")
 
 snapshot_download(
     model_id="BAAI/bge-reranker-large",
