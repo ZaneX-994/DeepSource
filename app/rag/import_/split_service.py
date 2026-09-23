@@ -183,7 +183,6 @@ def _merge_short_chunks_with_same_parent_title(refine_list) -> list[dict[str, An
     :return:
     """
 
-
     """
         先指向一个基础（pre）作为参照
         如果base小于400，尝试将后面的合并入

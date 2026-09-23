@@ -107,7 +107,7 @@ def prepared_milvus_item_name_collection():
         auto_id=True,  # 主键自增长
         enable_dynamic_field=True,  # schema设置列的信息! True插入了没有提前设定好的列,也可以进行存储
     )
-    # 列 名称 类型 长度限制..
+    # 列 名称 类型 长度限制..milvus
     schema.add_field(field_name="pk", datatype=DataType.INT64, is_primary=True)
     schema.add_field(field_name="file_title", datatype=DataType.VARCHAR, max_length=512)
     schema.add_field(field_name="item_name", datatype=DataType.VARCHAR, max_length=512)

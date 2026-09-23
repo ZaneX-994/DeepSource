@@ -7,6 +7,9 @@ class ImportGraphState(TypedDict):
 
     task_id: str
     local_file_path: str
+    # file_id: str
+    file_hash: str
+    duplicated: bool
 
     # 文件标识
     md_path: str
@@ -26,6 +29,8 @@ class ImportGraphState(TypedDict):
     item_name: str # 主体 file_title 兜底
 
     embedding_content: list
+
+
 
 # 准备一个state对象
 default_state:ImportGraphState = {

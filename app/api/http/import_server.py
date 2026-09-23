@@ -2,7 +2,6 @@
 导入服务 HTTP 入口模块，直接承载导入接口和相关接口业务逻辑
 """
 import shutil
-import sys
 import uuid
 from datetime import datetime
 from mimetypes import guess_type

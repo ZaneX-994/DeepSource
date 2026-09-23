@@ -54,6 +54,13 @@ def node_entry_after(state: ImportGraphState) -> str:
         logger.warning(f"传入文件地址：{state.get("local_file_path")}，不支持该类型文档处理！只能处理md/pdf文档！")
         return END
 
+def file_duplicated(state: ImportGraphState) -> str:
+    if state.get("duplicated", False):
+        logger.info(f"上传文件已存在，提前结束！")
+        return END
+    else:
+        return "node_md_img"
+
 graph_builder.add_conditional_edges(
     "node_entry",
     node_entry_after,
@@ -64,8 +71,18 @@ graph_builder.add_conditional_edges(
     }
 )
 
+graph_builder.add_conditional_edges(
+    "node_pdf_to_md",
+    file_duplicated,
+    {
+        "node_pdf_to_md": "node_pdf_to_md",
+        "node_md_img": "node_md_img",
+        END: END
+    }
+)
+
 # 5. 设置静态边
-graph_builder.add_edge("node_pdf_to_md", "node_md_img")
+# graph_builder.add_edge("node_pdf_to_md", "node_md_img")
 graph_builder.add_edge("node_md_img", "node_document_split")
 graph_builder.add_edge("node_document_split", "node_item_name_recognition")
 graph_builder.add_edge("node_item_name_recognition", "node_bge_embedding")
@@ -75,3 +92,5 @@ graph_builder.add_edge("node_import_milvus", END)
 # 6. 编译图对象
 graph = graph_builder.compile()
 
+if __name__ == "__main__":
+    print(graph.get_graph().draw_mermaid())

@@ -1,3 +1,5 @@
+import hashlib
+import os.path
 import re
 from pathlib import Path
 
@@ -27,7 +29,7 @@ def validate_and_get_data(state: ImportGraphState):
 
     md_path_obj = Path(md_path)
     if not md_path_obj.exists():
-        logger.error(f"md_path: {md_path}，但是没有真实的文件，业务无法继续！")
+        logger.error(f"存在md_path: {md_path}，但是没有真实的文件，业务无法继续！")
         raise ValueError(f"md_path: {md_path}，但是没有真实的文件，业务无法继续！")
 
     # 3.读取md_content
@@ -125,6 +127,16 @@ def summarize_image(image_content: list[tuple[str, str, tuple[str, str]]], stem:
 
     return image_summaries
 
+
+def calc_md5(file_path):
+    md5 = hashlib.md5()
+
+    with open(file_path, "rb") as f:
+        while chunk := f.read(8192):
+            md5.update(chunk)
+
+    return md5.hexdigest()
+
 @step_log("upload_images_and_replace")
 def upload_images_and_replace(md_content: str, image_summaries: dict[str, str],
                               image_content: list[tuple[str, str, tuple[str, str]]], stem: str) -> str:
@@ -140,7 +152,7 @@ def upload_images_and_replace(md_content: str, image_summaries: dict[str, str],
     # 获取minio客户端对象
     minio_client = minio_gateway.minio_client
 
-    # 先删除当前文件图片（minion）
+    # 先删除当前文件图片（minio）
     """
         bucket_name
             /upload-images
@@ -152,14 +164,15 @@ def upload_images_and_replace(md_content: str, image_summaries: dict[str, str],
         bucket_name=minio_gateway.bucket_name,
         # prefix查询的时候前面一定不能加 /
         prefix=minio_gateway.image_minio_dir[1:] + "/" + stem,
-        recursive=True, # 获取前缀下的文件夹中的所有对象
+        recursive=True,  # 获取前缀下的文件夹中的所有对象
     )
 
     # 再删除
     # select_object_list -> delete_object_list
-    delete_object_list = [ DeleteObject(select_object.object_name) for select_object in select_object_list ]
+    delete_object_list = [DeleteObject(select_object.object_name) for select_object in select_object_list]
 
     errors = minio_client.remove_objects(minio_gateway.bucket_name, delete_object_list=delete_object_list)
+
 
     for error in errors:
         logger.warning(f"文件删除状态: {error}")

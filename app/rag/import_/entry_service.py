@@ -12,7 +12,7 @@ def resolve_input_file(state: ImportGraphState) -> ImportGraphState:
     4. 回写 pdf_path / md_path / file_title
     """
 
-    local_file_path = state.get("local_file_path")
+    local_file_path = state.get("local_file_path", "")
 
     if not local_file_path:
         logger.error(f"local_file_path为空，无法继续业务，提前终止！")

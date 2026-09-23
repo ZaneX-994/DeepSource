@@ -71,7 +71,7 @@ http://www.95105369.com。
 
 •	使用本设备之后短时间内，本设备的一些内部零件仍然处于极热状态。打开前盖时，请勿触摸以灰色标记的区域。存在烧伤的风险。先等待设备冷却下来，再触摸设备的内部零件。
 
-![警告：设备关闭后内部零件仍达170°C，勿触灰色区域，需冷却后再操作，防止烫伤。](http://localhost:9000/deepsource/upload-images/hak180产品安全手册/f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg)  
+![警告：设备关闭后内部零件仍达170°C，勿触灰色区域，待冷却后再操作，以防烫伤。](http://localhost:9000/deepsource/upload-images/hak180产品安全手册/f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg)  
 儎⑟ഴḽ䆜઀ᛞ࠽व䀜᪮儎⑟Ⲻ䇴༽䜞ԬȾ
 
 ![图片展示设备内部结构及手部操作示意，配文强调仅使用220–240V交流电源，禁用直流或逆变器，并提醒勿湿手插拔。](http://localhost:9000/deepsource/upload-images/hak180产品安全手册/501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg)

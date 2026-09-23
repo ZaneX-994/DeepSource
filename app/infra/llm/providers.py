@@ -1,4 +1,3 @@
-from app import infra
 from app.infra.config.providers import infra_config
 from app.shared.model import get_llm_client, get_bge_m3_ef, generate_embeddings, get_reranker_model
 

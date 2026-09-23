@@ -83,7 +83,7 @@ def search_by_item_names(item_names: list[str]) -> dict[str, list[dict]]: # -> {
     final_result = {}
 
     # 批量把item_names转化成稀疏和稠密向量
-    # {dense: [[],[]], sparse: [[],[]]」
+    # {dense: [[],[]], sparse: [[],[]]
     item_names_vectors = llm_provider.generate_embeddings(item_names)
     for index in range(0, len(item_names)):
         # 获取item_name对应的稠密稀疏向量
@@ -223,4 +223,5 @@ def confirm_item_name(state: QueryGraphState) -> QueryGraphState:
 
     # 记录提问和聊天记录
     save_history_message(state)
+
     return state

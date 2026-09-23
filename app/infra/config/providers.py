@@ -25,6 +25,7 @@ class InfraConfig:
     settings:AppSettings=field(default_factory=lambda : settings)
     #name:str="哈哈哈"
 
+
 infra_config = InfraConfig()
 
 # python的安全机制!!

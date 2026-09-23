@@ -15,7 +15,7 @@ class AppSettings:
     import_app_name: str = os.getenv("IMPORT_APP_NAME", "Enterprise RAG Import Service")
     query_app_name: str = os.getenv("QUERY_APP_NAME", "Enterprise RAG Query Service")
     app_env: str = os.getenv("APP_ENV", "dev")
-    app_host: str = os.getenv("APP_HOST", "0.0.0.0")
+    app_host: str = os.getenv("APP_HOST", "127.0.0.1")
     import_app_port: int = int(os.getenv("IMPORT_APP_PORT", "8000"))
     query_app_port: int = int(os.getenv("QUERY_APP_PORT", "8001"))
     cors_origins: tuple[str, ...] = tuple(

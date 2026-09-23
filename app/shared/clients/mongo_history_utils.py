@@ -216,6 +216,7 @@ def get_recent_messages(session_id: str, limit: int = 10) -> list[dict[str, Any]
         return []
 
 
+
 # 主程序入口：仅当直接运行该脚本时执行，用于简单的功能测试
 if __name__ == "__main__":
     # 简单测试代码：验证数据库的写入和查询功能是否正常

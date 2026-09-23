@@ -47,5 +47,4 @@ def search_by_hyde(state: QueryGraphState) -> QueryGraphState:
     hyde_embedding_chunks = deal_milvus_list(milvus_list)
 
 
-
     return hyde_embedding_chunks
